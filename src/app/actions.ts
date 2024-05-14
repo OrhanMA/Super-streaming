@@ -1,3 +1,7 @@
+"use server";
+
+import { redirect } from "next/navigation";
+
 const baseURl = "https://api.themoviedb.org/3";
 
 export async function fetchMovieResource(resourceURL: string) {
@@ -31,4 +35,16 @@ export async function getMovieSearchResults(searchQuery: string) {
   );
   const data = await response.json();
   return data;
+}
+
+export async function searchMovie(formData: FormData) {
+  const query: FormDataEntryValue | null = formData.get("query");
+
+  console.log("QUERY: ", query);
+
+  if (query && typeof query === "string") {
+    redirect(`/search?query=${query}`);
+  } else {
+    redirect(`/?message=Please enter a query to search a movie`);
+  }
 }
