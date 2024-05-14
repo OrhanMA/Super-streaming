@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SearchBar from "@/components/Searchbar";
+import { HeartIcon } from "@radix-ui/react-icons";
 
 export default function Navbar() {
   return (
@@ -8,7 +9,7 @@ export default function Navbar() {
         Super Streaming
       </Link>
       <SearchBar />
-      <div className="gap-4 hidden sm:flex">
+      <div className="gap-4 hidden sm:flex items-center">
         <Link className="text-sm" href={"/popular"}>
           Popular
         </Link>
@@ -17,6 +18,9 @@ export default function Navbar() {
         </Link>
         <Link className="text-sm" href={"/upcoming"}>
           Upcoming
+        </Link>
+        <Link href={"/favorites"}>
+          <HeartIcon />
         </Link>
       </div>
     </div>

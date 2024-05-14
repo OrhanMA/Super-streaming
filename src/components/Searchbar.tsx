@@ -12,7 +12,7 @@ export default async function SearchBar() {
         className="text-black"
         placeholder="Spiderman"
       />
-      <Button>search</Button>
+      <Button variant={"secondary"}>search</Button>
     </form>
   );
 }

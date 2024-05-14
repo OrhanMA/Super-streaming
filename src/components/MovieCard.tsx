@@ -9,10 +9,11 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import LikeButton from "./LikeButton";
 
 export function MovieCard({ movie }: { movie: MovieDetails }) {
   return (
-    <Card className="bg-transparent border-none text-slate-200 flex flex-col items-center">
+    <Card className="bg-transparent border-none text-slate-200 flex flex-col items-center mt-12">
       <CardTitle>{movie.title}</CardTitle>
       <CardHeader>
         <div className="w-full flex justify-center sm:justify-start mb-4">
@@ -35,9 +36,9 @@ export function MovieCard({ movie }: { movie: MovieDetails }) {
           })}
         </ul>
         <div className="flex gap-8">
-          <p>Released: {movie.release_date}</p>
-          <p>Duration: {movie.runtime} minutes</p>
-          <p>Rating: {movie.vote_average}/10</p>
+          <p className="text-sm mt-4">Released: {movie.release_date}</p>
+          <p className="text-sm mt-4">Duration: {movie.runtime} minutes</p>
+          <p className="text-sm mt-4">Rating: {movie.vote_average}/10</p>
         </div>
       </CardHeader>
       <CardContent className="flex flex-col items-start gap-6">
@@ -45,6 +46,9 @@ export function MovieCard({ movie }: { movie: MovieDetails }) {
           {movie.overview}
         </CardDescription>
       </CardContent>
+      <CardFooter>
+        <LikeButton movie={movie} />
+      </CardFooter>
     </Card>
   );
 }
