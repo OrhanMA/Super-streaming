@@ -6,7 +6,12 @@ import Link from "next/link";
 export default async function SearchBar() {
   return (
     <form className="flex gap-4" action={searchMovie}>
-      <Input type="text" name="query" placeholder="Spiderman" />
+      <Input
+        type="text"
+        name="query"
+        className="text-black"
+        placeholder="Spiderman"
+      />
       <Button>search</Button>
     </form>
   );

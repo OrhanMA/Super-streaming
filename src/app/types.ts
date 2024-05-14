@@ -6,6 +6,7 @@ export interface MovieDetails {
   runtime: string;
   vote_average: string;
   overview: string;
+  backdrop_path: string;
 }
 
 export interface MoviePreview {

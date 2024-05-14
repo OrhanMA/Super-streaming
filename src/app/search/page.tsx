@@ -1,7 +1,7 @@
 import MoviesCarousel from "@/components/MoviesCarousel";
 import { getMovieSearchResults } from "@/app/actions";
 import { MovieData } from "@/app/types";
-
+import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 export default async function Search({
   searchParams,
 }: {
@@ -12,8 +12,9 @@ export default async function Search({
   );
 
   return (
-    <main className="flex min-h-screen flex-col justify-between p-12">
+    <div>
       <div className="px-6">
+        <HomeBreadcrumb currentSection={`Search : ${searchParams.query}`} />
         {searchResults.results.length > 0 ? (
           <>
             <h1 className="text-2xl font-bold mb-6">
@@ -27,6 +28,6 @@ export default async function Search({
           </h1>
         )}
       </div>
-    </main>
+    </div>
   );
 }
