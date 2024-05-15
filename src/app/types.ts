@@ -7,6 +7,7 @@ export interface MovieDetails {
   vote_average: string;
   overview: string;
   backdrop_path: string;
+  poster_path: string;
 }
 
 export interface MoviePreview {

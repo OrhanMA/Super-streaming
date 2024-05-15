@@ -24,23 +24,19 @@ export default function LikeButton({ movie }: { movie: MovieDetails }) {
     );
 
     if (movieIndex !== -1) {
-      // Movie already liked, remove it
       const newMovieArray = [
         ...currentMoviesLikes.slice(0, movieIndex),
         ...currentMoviesLikes.slice(movieIndex + 1),
       ];
       localStorage.setItem("movies", JSON.stringify(newMovieArray));
       setLiked(false);
-      // Add toast for removal
     } else {
-      // Movie not liked, add it
       const newMovieArray = [
         ...currentMoviesLikes,
         { title: movie.title, id: movie.id },
       ];
       localStorage.setItem("movies", JSON.stringify(newMovieArray));
       setLiked(true);
-      // Add toast for addition
     }
   }
   return (

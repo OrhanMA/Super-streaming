@@ -17,7 +17,7 @@ export async function getMostPopularMovie() {
   return data.results[0];
 }
 
-export async function getMovieDetails(movieId: string) {
+export async function getMovieDetails(movieId: number) {
   const response = await fetch(
     baseURl + "/movie/" + movieId + "?api_key=" + process.env.MOVIE_DB_API_KEY
   );
