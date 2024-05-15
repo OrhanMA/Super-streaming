@@ -10,45 +10,60 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import LikeButton from "./LikeButton";
+import { formatDuration } from "@/lib/date";
+import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
 
 export function MovieCard({ movie }: { movie: MovieDetails }) {
   return (
-    <Card className="bg-transparent border-none text-slate-200 flex flex-col items-center mt-12">
-      <CardTitle>{movie.title}</CardTitle>
-      <CardHeader>
-        <div className="w-full flex justify-center sm:justify-start mb-4">
+    <div className="bg-transparent border-none text-slate-200 flex flex-col items-center pt-6 md:pt-12">
+      <div className="flex flex-col md:flex-row md:gap-6 p-0">
+        <div className="w-full flex justify-center sm:justify-start mb-4 md:min-w-[300px]">
           <Image
             className="max-h-[400px] object-cover"
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="test"
             // fill={true}
-            width={500}
+            width={640}
             height={300}
           ></Image>
         </div>
-        <ul className="flex gap-2">
-          {movie.genres.map((genre: { id: number; name: string }) => {
-            return (
-              <li key={genre.id}>
-                <Badge className="bg-slate-800">{genre.name}</Badge>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="flex gap-8">
-          <p className="text-sm mt-4">Released: {movie.release_date}</p>
-          <p className="text-sm mt-4">Duration: {movie.runtime} minutes</p>
-          <p className="text-sm mt-4">Rating: {movie.vote_average}/10</p>
+        <div className="mx-4 md:m-0 max-w-[700px]">
+          <ul className="m-2 md:mx-0 flex flex-wrap gap-2">
+            {movie.genres.map((genre: { id: number; name: string }) => {
+              return (
+                <li key={genre.id}>
+                  <Badge className="text-xs" variant={"outline"}>
+                    {genre.name}
+                  </Badge>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="p-2 md:px-0 md:mt-4 font-bold text-xl sm:text-2xl">
+            {movie.title}
+          </p>
+          <div className="flex flex-col items-center">
+            <div className="w-full flex flex-wrap justify-between items-center gap-8 text-sm my-4">
+              <div className="flex items-center gap-2 md:gap-4">
+                <Badge variant={"outline"} className="p-2 font-normal ">
+                  {movie.release_date}
+                </Badge>
+                <p>{formatDuration(movie.runtime)}</p>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="text-lg">
+                  {Math.round(Number(movie.vote_average))}
+                </span>
+                <StarFilledIcon />
+              </div>
+            </div>
+            <p className="flex flex-col items-start gap-6 my-4 sm:my-8 md:my-6 text-sm">
+              {movie.overview}
+            </p>
+          </div>
+          <LikeButton classNames="text-xs p-2" movie={movie} />
         </div>
-      </CardHeader>
-      <CardContent className="flex flex-col items-start gap-6">
-        <CardDescription className="max-w-[500px] text-slate-200">
-          {movie.overview}
-        </CardDescription>
-      </CardContent>
-      <CardFooter>
-        <LikeButton movie={movie} />
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

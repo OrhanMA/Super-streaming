@@ -3,7 +3,13 @@ import { MovieDetails } from "@/app/types";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 
-export default function LikeButton({ movie }: { movie: MovieDetails }) {
+export default function LikeButton({
+  movie,
+  classNames,
+}: {
+  movie: MovieDetails;
+  classNames?: string;
+}) {
   const [liked, setLiked] = useState(false);
   useEffect(() => {
     const currentMoviesLikes = JSON.parse(
@@ -41,6 +47,7 @@ export default function LikeButton({ movie }: { movie: MovieDetails }) {
   }
   return (
     <Button
+      className={classNames}
       variant={liked ? "destructive" : "secondary"}
       onClick={() => {
         handleMovieLike();

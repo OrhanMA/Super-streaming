@@ -4,8 +4,6 @@ import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 export default async function TopRated() {
   const topRatedMovies = await fetchMovieResource("/movie/top_rated");
 
-  console.log(topRatedMovies);
-
   return (
     <div>
       <div className="px-6">

@@ -17,11 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className}  bg-gradient-to-t from-slate-950 to-slate-800 text-slate-200`}
-      >
+      <body className={`${inter.className}  bg-slate-900 text-slate-200`}>
         <Navbar />
-        <main className="flex min-h-screen flex-col justify-between p-4 sm:p-12">
+        <main className="flex flex-col justify-between sm:p-12">
           {children}
         </main>
       </body>

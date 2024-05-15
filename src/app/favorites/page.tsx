@@ -5,6 +5,8 @@ import { getMovieDetails } from "../actions";
 import { MovieDetails } from "../types";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import LikeButton from "@/components/LikeButton";
 
 export default function Favorites() {
   // tableau vide de base
@@ -46,24 +48,22 @@ export default function Favorites() {
           moviesData.length > 0 &&
           moviesData.map((movie) => {
             return (
-              <Link
-                href={`/movie/${movie.id}`}
-                className="m-4 w-full sm:w-1/3 md:w-1/4 lg:w-1/5 bg-transparent border-none flex justify-center overflow-hidden"
+              <div
                 key={movie.id}
+                className="m-4 w-full sm:w-1/3 md:w-1/4 lg:w-1/5 bg-transparent border-none flex flex-col justify-center items-center overflow-hidden gap-2"
               >
-                {/* <CardHeader>
-                  <CardTitle className="text-center">{movie.title}</CardTitle>
-                </CardHeader> */}
-
-                <Image
-                  className="w-full max-w-[300px] object-cover "
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt="test"
-                  // fill={true}
-                  width={500}
-                  height={300}
-                ></Image>
-              </Link>
+                <Link href={`/movie/${movie.id}`}>
+                  <Image
+                    className="w-full max-w-[300px] object-cover "
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt="test"
+                    // fill={true}
+                    width={500}
+                    height={300}
+                  ></Image>
+                </Link>
+                <LikeButton movie={movie} />
+              </div>
             );
           })}
       </ul>

@@ -14,8 +14,8 @@ export default function HomeBreadcrumb({
   currentSection: string;
 }) {
   return (
-    <Breadcrumb className="mb-6">
-      <BreadcrumbList>
+    <Breadcrumb className="ml-4 mt-6">
+      <BreadcrumbList className="flex flex-wrap">
         <BreadcrumbItem>
           <BreadcrumbLink className="text-slate-400" href="/">
             Home

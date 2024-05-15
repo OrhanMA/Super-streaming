@@ -8,15 +8,11 @@ export default async function MovieDetails({
   params: { id: string };
 }) {
   const movie = await getMovieDetails(Number(params.id));
-  console.log(movie);
 
   return (
-    <div>
-      <div className="px-6">
-        <HomeBreadcrumb currentSection={movie.title} />
-
-        <MovieCard movie={movie} />
-      </div>
-    </div>
+    <>
+      <HomeBreadcrumb currentSection={movie.title} />
+      <MovieCard movie={movie} />
+    </>
   );
 }

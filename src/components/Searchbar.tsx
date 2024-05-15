@@ -5,14 +5,14 @@ import Link from "next/link";
 
 export default async function SearchBar() {
   return (
-    <form className="flex gap-4" action={searchMovie}>
+    <form className="w-full flex gap-4" action={searchMovie}>
       <Input
         type="text"
         name="query"
-        className="text-black"
+        className="text-black text-xs h-8 max-w-[400px]"
         placeholder="Spiderman"
       />
-      <Button variant={"secondary"}>search</Button>
+      <Button className="bg-slate-950 text-white text-xs h-8">search</Button>
     </form>
   );
 }

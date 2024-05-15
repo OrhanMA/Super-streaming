@@ -4,7 +4,6 @@ import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 export default async function Popular() {
   const popularMovies = await fetchMovieResource("/movie/popular");
 
-  console.log(popularMovies);
 
   return (
     <div>
