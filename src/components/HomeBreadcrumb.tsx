@@ -17,11 +17,11 @@ export default function HomeBreadcrumb({
     <Breadcrumb className="ml-4 mt-6">
       <BreadcrumbList className="flex flex-wrap">
         <BreadcrumbItem>
-          <BreadcrumbLink className="text-slate-400" href="/">
+          <BreadcrumbLink className="text-stone-400" href="/">
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className="text-slate-400">
+        <BreadcrumbSeparator className="text-stone-400">
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>

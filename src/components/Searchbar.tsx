@@ -12,7 +12,7 @@ export default async function SearchBar() {
         className="text-black text-xs h-8 max-w-[400px]"
         placeholder="Spiderman"
       />
-      <Button className="bg-slate-950 text-white text-xs h-8">search</Button>
+      <Button className="bg-stone-700 text-white text-xs h-8">search</Button>
     </form>
   );
 }

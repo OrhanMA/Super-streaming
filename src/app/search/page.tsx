@@ -2,6 +2,7 @@ import MoviesCarousel from "@/components/MoviesCarousel";
 import { getMovieSearchResults } from "@/app/actions";
 import { MovieData } from "@/app/types";
 import HomeBreadcrumb from "@/components/HomeBreadcrumb";
+import MovieCategoryGrid from "@/components/MovieCategoryGrid";
 export default async function Search({
   searchParams,
 }: {
@@ -11,19 +12,26 @@ export default async function Search({
     searchParams.query
   );
 
+  const sortedByPopularity = searchResults.results.sort(
+    (a, b) => a.vote_average - b.vote_average
+  );
+  searchResults.results = sortedByPopularity;
   return (
     <div>
       <div className="px-6">
         <HomeBreadcrumb currentSection={`Search : ${searchParams.query}`} />
         {searchResults.results.length > 0 ? (
           <>
-            <h1 className="text-2xl font-bold mb-6">
+            <h1 className="text-2xl font-bold my-6">
               Search results for: {searchParams.query}
             </h1>
-            <MoviesCarousel movies={searchResults} />
+            <MovieCategoryGrid
+              detailed={false}
+              movies={{ ...searchResults, results: sortedByPopularity }}
+            />
           </>
         ) : (
-          <h1 className="text-2xl font-bold mb-6">
+          <h1 className="text-2xl font-bold my-6">
             No movie results for: {searchParams.query}
           </h1>
         )}

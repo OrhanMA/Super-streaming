@@ -5,14 +5,14 @@ import { Button } from "./ui/button";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-center sm:justify-between gap-6 p-4 bg-slate-100 text-black top-0 z-10">
-      <Link className="text-sm hidden md:block" href={"/"}>
-        <Button>
+    <div className="flex items-center justify-center sm:justify-between gap-6 p-4 bg-stone-900 text-stone-100 top-0 z-10">
+      <Link className="text-sm hidden md:block" href={"/"} id="home">
+        <Button className="bg-stone-700">
           <VideoIcon />
         </Button>
       </Link>
       <SearchBar />
-      <div className="gap-4 hidden sm:flex items-center text-xs">
+      <div className="gap-4 hidden sm:flex items-center text-xs md:text-md">
         <Link className="" href={"/popular"}>
           Popular
         </Link>
@@ -22,7 +22,7 @@ export default function Navbar() {
         <Link className="" href={"/upcoming"}>
           Soon
         </Link>
-        <Link href={"/favorites"}>
+        <Link href={"/favorites"} id="favorites">
           <HeartIcon />
         </Link>
       </div>
