@@ -1,6 +1,10 @@
 import { fetchMovieResource } from "@/app/actions";
 import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 import MovieCategoryGrid from "@/components/MovieCategoryGrid";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Super Streaming - Popular Movies",
+};
 
 export default async function Popular() {
   const popularMovies = await fetchMovieResource("/movie/popular");

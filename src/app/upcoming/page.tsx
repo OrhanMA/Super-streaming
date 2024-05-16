@@ -1,6 +1,11 @@
 import { fetchMovieResource } from "@/app/actions";
 import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 import MovieCategoryGrid from "@/components/MovieCategoryGrid";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Super Streaming - Upcoming Movies",
+};
 
 export default async function Upcoming() {
   const upcomingMovies = await fetchMovieResource("/movie/upcoming");

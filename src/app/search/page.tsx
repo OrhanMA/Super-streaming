@@ -3,6 +3,10 @@ import { getMovieSearchResults } from "@/app/actions";
 import { MovieData } from "@/app/types";
 import HomeBreadcrumb from "@/components/HomeBreadcrumb";
 import MovieCategoryGrid from "@/components/MovieCategoryGrid";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Super Streaming - Search Results",
+};
 export default async function Search({
   searchParams,
 }: {
