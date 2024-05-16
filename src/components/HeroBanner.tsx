@@ -10,10 +10,11 @@ export default function HeroBanner({ movie }: { movie: any }) {
         <Link href={`/movie/${movie.id}`}>
           <Image
             className="w-full h-auto max-h-[400px] lg:max-h-[500px] object-cover"
-            src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
+            src={"https://image.tmdb.org/t/p/w780/" + movie.poster_path}
             width={200}
             height={500}
             alt={movie.title + " poster path"}
+            priority
           ></Image>
         </Link>
       </div>

@@ -7,7 +7,7 @@ export function MovieCardPreview({ movie }: { movie: Movie }) {
       <CardContent className="px-1 flex flex-col items-center justify-center gap-4">
         <Image
           className="object-cover"
-          src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
+          src={"https://image.tmdb.org/t/p/w342/" + movie.poster_path}
           width={300}
           height={400}
           alt={movie.title + " poster path"}

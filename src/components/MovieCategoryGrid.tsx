@@ -14,7 +14,7 @@ export default function MovieCategoryGrid({
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 sm:gap-6 sm:gap-y-12">
       {movies.results.map((movie: Movie) => {
         return (
-          <div
+          <li
             key={movie.id}
             className="flex flex-col items-center overflow-hidden"
           >
@@ -27,9 +27,7 @@ export default function MovieCategoryGrid({
               {movie.poster_path ? (
                 <Image
                   className="object-cover md:min-h-[300px]"
-                  src={
-                    "https://image.tmdb.org/t/p/original/" + movie.poster_path
-                  }
+                  src={"https://image.tmdb.org/t/p/w342/" + movie.poster_path}
                   width={300}
                   height={500}
                   alt={movie.title + " poster path"}
@@ -58,7 +56,7 @@ export default function MovieCategoryGrid({
                 </div>
               </>
             )}
-          </div>
+          </li>
         );
       })}
     </div>
