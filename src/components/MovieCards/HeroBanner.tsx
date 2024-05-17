@@ -1,15 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "./ui/badge";
-import { formatDuration } from "@/lib/date";
+import { Badge } from "../ui/badge";
 import { PersonIcon, StarFilledIcon } from "@radix-ui/react-icons";
 export default function HeroBanner({ movie }: { movie: any }) {
   return (
-    <div className="flex flex-col items-center sm:flex-row gap-2 md:gap-12">
+    <div className="flex flex-col items-center sm:flex-row gap-2 md:gap-12 mt-12 md:mt-8">
       <div className="w-full  mb-2 sm:w-1/2 md:w-1/3 lg:w-1/4 md:mb-0">
         <Link href={`/movie/${movie.id}`}>
           <Image
-            className="w-full h-auto max-h-[400px] lg:max-h-[500px] object-cover"
+            className="w-full h-auto max-h-[400px] lg:max-h-[500px] object-contain"
             src={"https://image.tmdb.org/t/p/w780/" + movie.poster_path}
             width={200}
             height={500}

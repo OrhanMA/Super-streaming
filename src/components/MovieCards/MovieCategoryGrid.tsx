@@ -16,7 +16,7 @@ export default function MovieCategoryGrid({
         return (
           <li
             key={movie.id}
-            className="flex flex-col items-center overflow-hidden"
+            className="flex flex-col items-center overflow-hidden px-2 min-[480px]:px-8 min-[550px]:px-12 sm:px-0"
           >
             <Link
               href={`/movie/${movie.id}`}
@@ -26,7 +26,7 @@ export default function MovieCategoryGrid({
             >
               {movie.poster_path ? (
                 <Image
-                  className="object-cover md:min-h-[300px]"
+                  className="object-contain md:min-h-[300px]"
                   src={"https://image.tmdb.org/t/p/w342/" + movie.poster_path}
                   width={300}
                   height={500}
@@ -37,7 +37,7 @@ export default function MovieCategoryGrid({
               )}
             </Link>
             {detailed == true && (
-              <>
+              <div className="h-full">
                 <p className="flex items-center font-semibold text-lg text-center mt-4 min-h-[60px]">
                   {movie.title}
                 </p>
@@ -54,7 +54,7 @@ export default function MovieCategoryGrid({
                   </div>
                   <p className="max-h-[150px] line-clamp-5">{movie.overview}</p>
                 </div>
-              </>
+              </div>
             )}
           </li>
         );

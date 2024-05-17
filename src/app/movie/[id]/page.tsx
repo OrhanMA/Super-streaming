@@ -1,6 +1,6 @@
 import { getMovieDetails } from "@/app/actions";
-import { MovieCard } from "@/components/MovieCard";
-import HomeBreadcrumb from "@/components/HomeBreadcrumb";
+import { DetailedMovieCard } from "@/components/MovieCards/Details/DetailedMovieCard";
+import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
 
 export default async function MovieDetails({
   params,
@@ -12,7 +12,7 @@ export default async function MovieDetails({
   return (
     <>
       <HomeBreadcrumb currentSection={movie.title} />
-      <MovieCard movie={movie} />
+      <DetailedMovieCard movie={movie} />
     </>
   );
 }

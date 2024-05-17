@@ -8,6 +8,18 @@ export interface MovieDetails {
   overview: string;
   backdrop_path: string;
   poster_path: string;
+  production_companies: {
+    name: string;
+    origin_country: string;
+    id: number;
+    logo_path: string;
+  }[];
+  production_countries: {
+    name: string;
+  }[];
+  revenue: number;
+  homepage: string;
+  status: string;
 }
 
 export interface MoviePreview {

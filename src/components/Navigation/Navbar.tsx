@@ -1,11 +1,13 @@
 import Link from "next/link";
-import SearchBar from "@/components/Searchbar";
+import SearchBar from "@/components/Navigation/Searchbar";
 import { HeartIcon, VideoIcon } from "@radix-ui/react-icons";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   return (
     <div className="flex items-center justify-center sm:justify-between gap-6 p-4 bg-stone-900 text-stone-100 top-0 z-10">
+      <MobileMenu />
       <Link className="text-sm hidden md:block" href={"/"} id="home">
         <Button className="bg-stone-700" aria-label="Home">
           <VideoIcon />

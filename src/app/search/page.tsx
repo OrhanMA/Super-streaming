@@ -1,8 +1,8 @@
-import MoviesCarousel from "@/components/MoviesCarousel";
+import MoviesCarousel from "@/components/MovieCards/MoviesCarousel";
 import { getMovieSearchResults } from "@/app/actions";
 import { MovieData } from "@/app/types";
-import HomeBreadcrumb from "@/components/HomeBreadcrumb";
-import MovieCategoryGrid from "@/components/MovieCategoryGrid";
+import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
+import MovieCategoryGrid from "@/components/MovieCards/MovieCategoryGrid";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Super Streaming - Search Results",

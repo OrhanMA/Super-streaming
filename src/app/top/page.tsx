@@ -1,6 +1,6 @@
 import { fetchMovieResource } from "@/app/actions";
-import HomeBreadcrumb from "@/components/HomeBreadcrumb";
-import MovieCategoryGrid from "@/components/MovieCategoryGrid";
+import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
+import MovieCategoryGrid from "@/components/MovieCards/MovieCategoryGrid";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Super Streaming - Top Rated Movies",

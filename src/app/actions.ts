@@ -40,7 +40,6 @@ export async function getMovieSearchResults(searchQuery: string) {
 export async function searchMovie(formData: FormData) {
   const query: FormDataEntryValue | null = formData.get("query");
 
-
   if (query && typeof query === "string") {
     redirect(`/search?query=${query}`);
   } else {

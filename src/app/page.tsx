@@ -1,11 +1,8 @@
-import {
-  fetchMovieResource,
-  getMovieDetails,
-  getMovieSearchResults,
-} from "@/app/actions";
-import HeroBanner from "@/components/HeroBanner";
+import { fetchMovieResource } from "@/app/actions";
+import HeroBanner from "@/components/MovieCards/HeroBanner";
 import HomeAlert from "@/components/HomeAlert";
-import MoviesCarousel from "@/components/MoviesCarousel";
+import MoviesCarousel from "@/components/MovieCards/MoviesCarousel";
+import { Suspense } from "react";
 
 export default async function Home({
   searchParams,
@@ -20,12 +17,14 @@ export default async function Home({
   return (
     <div>
       {searchParams.message && <HomeAlert message={searchParams.message} />}
-      <HeroBanner movie={mostPopularMovie} />
-      <div className="w-full flex flex-col items-center  mt-16 gap-12 p-6">
-        <MoviesCarousel movies={popularMovies} category="Most popular" />
-        <MoviesCarousel movies={topRatedMovies} category="Top rated" />
-        <MoviesCarousel movies={upcomingMovies} category=" Upcoming movies" />
-      </div>
+      <Suspense fallback={<p>Getting data from TMDB please wait... </p>}>
+        <HeroBanner movie={mostPopularMovie} />
+        <div className="w-full flex flex-col items-center  mt-16 gap-12 p-6">
+          <MoviesCarousel movies={popularMovies} category="Most popular" />
+          <MoviesCarousel movies={topRatedMovies} category="Top rated" />
+          <MoviesCarousel movies={upcomingMovies} category=" Upcoming movies" />
+        </div>
+      </Suspense>
     </div>
   );
 }
