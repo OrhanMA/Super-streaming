@@ -4,7 +4,7 @@ Ce projet consiste à créer un petit site permettant de rechercher des films pr
 
 ## Stack technique
 
-### Next.js
+### [Next.js](https://nextjs.org/)
 
 Dans sa version 14.2.3, j'utilise les features de ce meta-framework pour optimiser mon application notamment:
 
@@ -27,7 +27,7 @@ Permet de créer un style cohérent, responsive et rapidement grâce à ses clas
 
 Une librairie de composant open-source construite avec [React](https://react.dev/) et [Tailwind](https://tailwindcss.com/) et basée sur [Radix/ui](https://www.radix-ui.com/) pour obtenir des composants non stylisée mais responsives et [accessibles](https://www.radix-ui.com/primitives/docs/overview/accessibility).
 
-### Cypress
+#### [Cypress](https://www.cypress.io/)
 
 J'ai utilisé [Cypress](https://www.cypress.io/) pour réaliser des test End-to-End et unitaires sur mes composants React. Cela m'a permis de surveiller l'évolution de mon code à l'ajout de nouvelles features.
 
@@ -43,7 +43,7 @@ pnpm install
 
 <br/>
 
-Pour bien que l'application soit fonctionnelle vous aurez besoin d'une clé API TMDB: https://developer.themoviedb.org/docs/getting-started
+Pour bien que l'application soit fonctionnelle vous aurez besoin d'une [clé API TMDB](https://developer.themoviedb.org/docs/getting-started).
 
 <br/>
 
