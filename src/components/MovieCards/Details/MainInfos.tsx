@@ -51,7 +51,10 @@ export default function MainInfos({ movie }: { movie: MovieDetails }) {
           )}
         </p>
       </div>
-      <LikeButton classNames="text-xs p-2 bg-red-800" movie={movie} />
+      <LikeButton
+        classNames="text-xs p-2 bg-red-800 text-white"
+        movie={movie}
+      />
     </>
   );
 }

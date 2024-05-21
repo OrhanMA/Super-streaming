@@ -1,4 +1,3 @@
-import MoviesCarousel from "@/components/MovieCards/MoviesCarousel";
 import { getMovieSearchResults } from "@/app/actions";
 import { MovieData } from "@/app/types";
 import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
@@ -24,20 +23,20 @@ export default async function Search({
     <div>
       <div className="px-6">
         <HomeBreadcrumb currentSection={`Search : ${searchParams.query}`} />
+        <h1 className="text-2xl font-bold my-6">
+          Search results for: {searchParams.query}
+        </h1>
         {searchResults.results.length > 0 ? (
           <>
-            <h1 className="text-2xl font-bold my-6">
-              Search results for: {searchParams.query}
-            </h1>
             <MovieCategoryGrid
               detailed={false}
               movies={{ ...searchResults, results: sortedByPopularity }}
             />
           </>
         ) : (
-          <h1 className="text-2xl font-bold my-6">
+          <h2 className="text-xl font-bold my-6">
             No movie results for: {searchParams.query}
-          </h1>
+          </h2>
         )}
       </div>
     </div>

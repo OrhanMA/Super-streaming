@@ -11,7 +11,7 @@ export default function MovieCategoryGrid({
   detailed?: boolean;
 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 sm:gap-6 sm:gap-y-12">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 sm:gap-6 sm:gap-y-12">
       {movies.results.map((movie: Movie) => {
         return (
           <li
@@ -59,6 +59,6 @@ export default function MovieCategoryGrid({
           </li>
         );
       })}
-    </div>
+    </ul>
   );
 }

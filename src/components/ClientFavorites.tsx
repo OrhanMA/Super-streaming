@@ -5,7 +5,6 @@ import LikeButton from "@/components/LikeButton";
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "@/app/actions";
 import { MovieDetails } from "@/app/types";
-import { Skeleton } from "./ui/skeleton";
 import FavoriteSkeleton from "./FavoriteSkeleton";
 
 export default function ClientFavorites() {
@@ -41,13 +40,13 @@ export default function ClientFavorites() {
   }, [moviesLiked]);
 
   return (
-    <ul className="w-full flex justify-center gap-2 flex-wrap">
+    <ul className="w-full flex justify-center gap-2 md:mt-12 flex-wrap">
       {!isLoading ? (
         <>
           {moviesData && moviesData.length > 0 ? (
             moviesData.map((movie) => (
               <li
-                className="m-4 w-full sm:w-1/3 md:w-1/4 lg:w-1/5 bg-transparent border-none flex flex-col justify-center items-center overflow-hidden gap-2"
+                className="w-full sm:w-1/3 md:w-1/4 md:m-2 lg:w-1/6 bg-transparent border-none flex flex-col justify-center items-center overflow-hidden gap-2"
                 key={movie.id}
               >
                 <Link href={`/movie/${movie.id}`}>
@@ -60,7 +59,7 @@ export default function ClientFavorites() {
                   />
                 </Link>
                 <LikeButton
-                  classNames="w-full rounded-none bg-red-800"
+                  classNames="rounded-none bg-red-800 text-white rounded-md"
                   movie={movie}
                 />
               </li>

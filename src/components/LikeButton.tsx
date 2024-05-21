@@ -2,6 +2,7 @@
 import { MovieDetails } from "@/app/types";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function LikeButton({
   movie,
@@ -45,9 +46,11 @@ export default function LikeButton({
       setLiked(true);
     }
   }
+
+  const classes = twMerge(classNames);
   return (
     <Button
-      className={classNames}
+      className={classes}
       variant={liked ? "destructive" : "secondary"}
       onClick={() => {
         handleMovieLike();

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { MovieDetails, Movie, MovieData } from "@/app/types";
-import { Card, CardContent } from "@/components/ui/card";
+import { Movie, MovieData } from "@/app/types";
 import { MovieCardPreview } from "@/components/MovieCards/MovieCardPreview";
 import {
   Carousel,
