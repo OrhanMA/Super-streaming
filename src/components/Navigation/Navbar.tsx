@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SearchBar from "@/components/Navigation/Searchbar";
-import { HeartIcon, VideoIcon } from "@radix-ui/react-icons";
+import { HeartFilledIcon, VideoIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
 import MobileMenu from "./MobileMenu";
 
@@ -25,7 +25,7 @@ export default function Navbar() {
           Soon
         </Link>
         <Link href={"/favorites"} id="favorites" aria-label="Favorites">
-          <HeartIcon />
+          <HeartFilledIcon />
         </Link>
       </div>
     </div>

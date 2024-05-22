@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 
 export default async function SearchBar() {
   return (
-    <form className="w-full flex gap-4" action={searchMovie}>
+    <form className="w-full flex items-center gap-4" action={searchMovie}>
       <Input
         type="text"
         name="query"

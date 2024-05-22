@@ -1,5 +1,5 @@
 import { MovieDetails } from "@/app/types";
-import LikeButton from "@/components/LikeButton";
+import LikeButton from "@/components/Favorites/LikeButton";
 import { Badge } from "@/components/ui/badge";
 import { formatDuration } from "@/lib/date";
 import { StarFilledIcon } from "@radix-ui/react-icons";

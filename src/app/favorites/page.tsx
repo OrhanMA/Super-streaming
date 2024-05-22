@@ -1,4 +1,4 @@
-import ClientFavorites from "@/components/ClientFavorites";
+import ClientFavorites from "@/components/Favorites/ClientFavorites";
 import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
 import { Metadata } from "next";
 export const metadata: Metadata = {
