@@ -1,18 +1,19 @@
+ARG TMDB_API_KEY
+
 FROM node:18-alpine AS base
 
 ENV NODE_ENV production
+ENV TMDB_API_KEY=${TMDB_API_KEY}
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3000
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat   
 
 WORKDIR /app
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+COPY package.json package-lock.json* ./
+RUN if [ -f package-lock.json ]; then npm ci; else echo "Lockfile not found." && exit 1; fi
+
 
   
   
@@ -20,20 +21,12 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-  
-ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN \
-  if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN if [ -f package-lock.json ]; then npm run build; else echo "Lockfile not found." && exit 1; fi
 
 
 FROM base AS runner
 WORKDIR /app
-ENV NEXT_TELEMETRY_DISABLED 1
+
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -50,10 +43,5 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 EXPOSE 3000
-
-ARG TMDB_API_KEY
-ENV TMDB_API_KEY=${TMDB_API_KEY}
-
-ENV PORT 3000
 
 CMD HOSTNAME="0.0.0.0" node server.js
