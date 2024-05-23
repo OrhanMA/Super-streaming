@@ -39,16 +39,16 @@ jobs:
         #   docker push orhanma/super-streaming:latest
 
       - name: Install SSH client
-        run: sudo apt-get install -y ssh
+        run: sudo apt-get install -y openssh-client
 
       - name: Deploy to Digital Ocean Droplet
         env:
           DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
-          DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
+          # DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
         run: |
           eval "$(ssh-agent -s)"
-          echo "${{ secrets.DO_SSH_KEY }}" | ssh-add -
-          ssh -tt -o StrictHostKeyChecking=no root@${{ secrets.DO_DROPLET_IP }} <<EOF
+          echo "${{ secrets.DO_SSH_KEY }}" | tr -d '\r' | ssh-add -
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.DO_DROPLET_IP }} <<EOF
             docker pull ${{ secrets.DOCKER_USERNAME }}/super-streaming:latest
             docker stop super-streaming || true
             docker rm super-streaming || true
