@@ -1,6 +1,6 @@
 ARG TMDB_API_KEY
 
-FROM node:18-alpine AS base
+FROM node:21-alpine AS base
 
 ENV NODE_ENV production
 ENV TMDB_API_KEY=${TMDB_API_KEY}
@@ -19,7 +19,9 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN pwd
 RUN npm run build
+RUN pwd
 
 
 FROM base AS runner
