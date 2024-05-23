@@ -12,7 +12,7 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN if [ -f package-lock.json ]; then npm ci; else echo "Lockfile not found." && exit 1; fi
+RUN npm install
 
 
   
@@ -21,7 +21,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN if [ -f package-lock.json ]; then npm run build; else echo "Lockfile not found." && exit 1; fi
+RUN npm run build
 
 
 FROM base AS runner
