@@ -1,32 +1,35 @@
 ARG TMDB_API_KEY
 
-FROM node:21-alpine AS base
+FROM node:18-alpine AS base
 
-ENV NODE_ENV production
+
 ENV TMDB_API_KEY=${TMDB_API_KEY}
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV PORT 3000
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat   
 
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN NODE_ENV=development npm install
+
+RUN npm install
+RUN npm install sharp
   
   
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN pwd
-RUN npm run build
-RUN pwd
+
+RUN --mount=type=secret,id=TMDB_API_KEY \
+  export TMDB_API_KEY=$(cat /run/secrets/TMDB_API_KEY) && \
+  npm run build
 
 
 FROM base AS runner
 WORKDIR /app
 
+ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -34,7 +37,8 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 
 RUN mkdir .next
-RUN chown nextjs:nodejs .next
+RUN chown -R nextjs:nodejs .next
+RUN chown -R nextjs:nodejs public
 
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
@@ -44,4 +48,7 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD HOSTNAME="0.0.0.0" node server.js
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+
+CMD ["node", "server.js"]
