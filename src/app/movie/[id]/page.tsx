@@ -9,6 +9,8 @@ export default async function MovieDetails({
 }) {
   const movie = await getMovieDetails(Number(params.id));
 
+  console.log(movie);
+
   return (
     <>
       <HomeBreadcrumb currentSection={movie.title} />

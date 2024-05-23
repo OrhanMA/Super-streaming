@@ -31,7 +31,11 @@ Une librairie de composant open-source construite avec [React](https://react.dev
 
 J'ai utilisé [Cypress](https://www.cypress.io/) pour réaliser des test End-to-End et unitaires sur mes composants React. Cela m'a permis de surveiller l'évolution de mon code à l'ajout de nouvelles features.
 
-## Installation
+#### [Docker](https://www.docker.com/)
+
+J'ai utilisé [Docker](https://www.docker.com/) pour apprendre l'outil et permettre de lancer l'application Next.js dans un environnement isolé de l'ordinateur host.
+
+## Installation locale
 
 Ouvrer votre terminal et utilisez les commandes suivantes
 
@@ -67,3 +71,20 @@ Pour la version build (optimisée pour la production)
 ```
 npm run build && npm run start
 ```
+
+### [Docker](https://www.docker.com/)
+
+Pour lancer l'application dans un conteneur Docker, lancer Docker puis voici les commandes pour créer une image à partir du fichier Dockerfile:
+
+```
+docker build -t super-streaming .
+
+docker run -p 3000:3000 -e MOVIE_DB_API_KEY=<clé-api> super-streaming
+```
+
+La première commande [crée une image Docker à partir du fichier Dockerfile](https://docs.docker.com/reference/cli/docker/image/build/) en la nommant 'super-streaming'.
+
+La seconde [crée et lance un conteneur](https://docs.docker.com/reference/cli/docker/container/run/) à partir de cette image en passant la valeur de la clé API pour la variable d'environnement `MOVIE_DB_API_KEY`.
+
+`-e` permet de set une variable d'environnement
+`-p` permet de lier le port 3000 du conteneur au port 3000 du host 127.0.0.1 pour nous en local
