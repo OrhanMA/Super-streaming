@@ -27,7 +27,7 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          docker build -t orhanma/super-streaming:latest .
+          docker build -t orhanma/super-streaming:latest --build-arg TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} .
           docker push orhanma/super-streaming:latest
 
       - name: Install SSH client

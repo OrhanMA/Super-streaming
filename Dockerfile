@@ -11,13 +11,10 @@ RUN npm install --only=production
 COPY . .
 
 
-
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app ./
 RUN npm run build
-
-COPY .env.local /app/.env.local
 
 FROM base AS runner
 WORKDIR /app
@@ -39,7 +36,8 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV TMDB_API_KEY YOUR_API_KEY
+ARG TMDB_API_KEY
+ENV TMDB_API_KEY=${TMDB_API_KEY}
 
 ENV PORT 3000
 
