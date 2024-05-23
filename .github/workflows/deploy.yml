@@ -52,5 +52,5 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/super-streaming:latest
             docker stop super-streaming || true
             docker rm super-streaming || true
-            docker run -d --name super-streaming -p 80:3000 -e TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} ${{ secrets.DOCKER_USERNAME }}/super-streaming:latest
+            docker run -d --name super-streaming -p 8080:3000 -e TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} ${{ secrets.DOCKER_USERNAME }}/super-streaming:latest
           EOF
