@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Movie, MovieData } from "@/app/types";
-import { MovieCardPreview } from "@/components/MovieCards/MovieCardPreview";
+import { Movie, MovieData } from "../../app/types";
+import { MovieCardPreview } from "../../components/MovieCards/MovieCardPreview";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "../../components/ui/carousel";
 
 export default function MoviesCarousel({
   movies,

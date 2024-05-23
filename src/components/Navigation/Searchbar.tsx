@@ -1,6 +1,6 @@
-import { searchMovie } from "@/app/actions";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { searchMovie } from "../../app/actions";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
 export default async function SearchBar() {
   return (

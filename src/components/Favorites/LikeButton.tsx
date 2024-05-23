@@ -1,5 +1,5 @@
 "use client";
-import { MovieDetails } from "@/app/types";
+import { MovieDetails } from "../../app/types";
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";

@@ -1,7 +1,7 @@
-import { fetchMovieResource } from "@/app/actions";
-import HeroBanner from "@/components/MovieCards/HeroBanner";
-import HomeAlert from "@/components/HomeAlert";
-import MoviesCarousel from "@/components/MovieCards/MoviesCarousel";
+import { fetchMovieResource } from "../app/actions";
+import HeroBanner from "../components/MovieCards/HeroBanner";
+import HomeAlert from "../components/HomeAlert";
+import MoviesCarousel from "../components/MovieCards/MoviesCarousel";
 import { Suspense } from "react";
 
 export default async function Home({

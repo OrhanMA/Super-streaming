@@ -1,4 +1,4 @@
-import { MovieDetails } from "@/app/types";
+import { MovieDetails } from "../../../app/types";
 import ProductionCompanies from "./ProductionCompanies";
 import ProductionCountries from "./ProductionCountries";
 import Link from "next/link";

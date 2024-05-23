@@ -55,7 +55,7 @@ Créez un fichier .env.local avec votre clé API renseignée:
 
 ```bash
 mv .env.example .env.local
-MOVIE_DB_API_KEY=<your-api-key>
+TMDB_API_KEY=<your-api-key>
 ```
 
 <br/>
@@ -79,12 +79,12 @@ Pour lancer l'application dans un conteneur Docker, lancer Docker puis voici les
 ```
 docker build -t super-streaming .
 
-docker run -p 3000:3000 -e MOVIE_DB_API_KEY=<clé-api> super-streaming
+docker run -p 3000:3000 -e TMDB_API_KEY=<clé-api> super-streaming
 ```
 
 La première commande [crée une image Docker à partir du fichier Dockerfile](https://docs.docker.com/reference/cli/docker/image/build/) en la nommant 'super-streaming'.
 
-La seconde [crée et lance un conteneur](https://docs.docker.com/reference/cli/docker/container/run/) à partir de cette image en passant la valeur de la clé API pour la variable d'environnement `MOVIE_DB_API_KEY`.
+La seconde [crée et lance un conteneur](https://docs.docker.com/reference/cli/docker/container/run/) à partir de cette image en passant la valeur de la clé API pour la variable d'environnement `TMDB_API_KEY`.
 
 `-e` permet de set une variable d'environnement
 `-p` permet de lier le port 3000 du conteneur au port 3000 du host 127.0.0.1 pour nous en local

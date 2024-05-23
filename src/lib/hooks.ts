@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { getMovieDetails } from "@/app/actions";
-import { MovieDetails } from "@/app/types";
+import { getMovieDetails } from "../app/actions";
+import { MovieDetails } from "../app/types";
 
 export function useMoviesLikes() {
   const [moviesLiked, setMoviesLiked] = useState<MovieDetails[]>([]);

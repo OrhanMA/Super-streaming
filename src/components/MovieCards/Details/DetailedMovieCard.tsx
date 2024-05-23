@@ -1,4 +1,4 @@
-import { MovieDetails } from "@/app/types";
+import { MovieDetails } from "../../../app/types";
 import MainInfos from "./MainInfos";
 import SecondaryInfos from "./SecondaryInfos";
 import Image from "next/image";

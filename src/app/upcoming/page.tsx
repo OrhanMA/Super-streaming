@@ -1,6 +1,6 @@
-import { fetchMovieResource } from "@/app/actions";
-import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
-import MovieCategoryGrid from "@/components/MovieCards/MovieCategoryGrid";
+import { fetchMovieResource } from "../../app/actions";
+import HomeBreadcrumb from "../../components/Navigation/HomeBreadcrumb";
+import MovieCategoryGrid from "../../components/MovieCards/MovieCategoryGrid";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
-import ClientFavorites from "@/components/Favorites/ClientFavorites";
-import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
+import ClientFavorites from "../../components/Favorites/ClientFavorites";
+import HomeBreadcrumb from "../../components/Navigation/HomeBreadcrumb";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Super Streaming - Your Favorites Movies",

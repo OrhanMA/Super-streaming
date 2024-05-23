@@ -1,6 +1,6 @@
-import { getMovieDetails } from "@/app/actions";
-import { DetailedMovieCard } from "@/components/MovieCards/Details/DetailedMovieCard";
-import HomeBreadcrumb from "@/components/Navigation/HomeBreadcrumb";
+import { getMovieDetails } from "../../../app/actions";
+import { DetailedMovieCard } from "../../../components/MovieCards/Details/DetailedMovieCard";
+import HomeBreadcrumb from "../../../components/Navigation/HomeBreadcrumb";
 
 export default async function MovieDetails({
   params,
@@ -8,8 +8,6 @@ export default async function MovieDetails({
   params: { id: string };
 }) {
   const movie = await getMovieDetails(Number(params.id));
-
-  console.log(movie);
 
   return (
     <>

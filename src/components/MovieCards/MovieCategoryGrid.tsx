@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Movie, MovieData } from "@/app/types";
-import { Badge } from "@/components/ui/badge";
+import { Movie, MovieData } from "../../app/types";
+import { Badge } from "../../components/ui/badge";
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 export default function MovieCategoryGrid({

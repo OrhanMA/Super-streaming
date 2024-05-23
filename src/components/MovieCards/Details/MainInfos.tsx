@@ -1,7 +1,7 @@
-import { MovieDetails } from "@/app/types";
-import LikeButton from "@/components/Favorites/LikeButton";
-import { Badge } from "@/components/ui/badge";
-import { formatDuration } from "@/lib/date";
+import { MovieDetails } from "../../../app/types";
+import LikeButton from "../../../components/Favorites/LikeButton";
+import { Badge } from "../../../components/ui/badge";
+import { formatDuration } from "../../../lib/date";
 import { StarFilledIcon } from "@radix-ui/react-icons";
 
 export default function MainInfos({ movie }: { movie: MovieDetails }) {

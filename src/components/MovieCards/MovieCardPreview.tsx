@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Movie } from "@/app/types";
+import { Card, CardContent } from "../../components/ui/card";
+import { Movie } from "../../app/types";
 import Image from "next/image";
 export function MovieCardPreview({ movie }: { movie: Movie }) {
   return (

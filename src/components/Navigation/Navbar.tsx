@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SearchBar from "@/components/Navigation/Searchbar";
+import SearchBar from "./Searchbar";
 import { HeartFilledIcon, VideoIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
 import MobileMenu from "./MobileMenu";
