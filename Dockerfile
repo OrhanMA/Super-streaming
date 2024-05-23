@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=deps /app ./
 RUN npm run build
 
-COPY .env.local ./.env.local
+COPY .env.local /app/.env.local
 
 FROM base AS runner
 WORKDIR /app
