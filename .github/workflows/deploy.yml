@@ -46,9 +46,9 @@ jobs:
           DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
           DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
         run: |
-          echo "${{ secrets.DO_SSH_KEY }}" > /tmp/id_rsa
-          chmod 600 /tmp/id_rsa
-          ssh -tt -o StrictHostKeyChecking=no -i /tmp/id_rsa root@${{ secrets.DO_DROPLET_IP }} <<EOF
+          eval "$(ssh-agent -s)"
+          echo "${{ secrets.DO_SSH_KEY }}" | ssh-add -
+          ssh -tt -o StrictHostKeyChecking=no root@${{ secrets.DO_DROPLET_IP }} <<EOF
             docker pull ${{ secrets.DOCKER_USERNAME }}/super-streaming:latest
             docker stop super-streaming || true
             docker rm super-streaming || true
