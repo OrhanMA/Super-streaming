@@ -27,6 +27,8 @@ Permet de créer un style cohérent, responsive et rapidement grâce à ses clas
 
 Une librairie de composant open-source construite avec [React](https://react.dev/) et [Tailwind](https://tailwindcss.com/) et basée sur [Radix/ui](https://www.radix-ui.com/) pour obtenir des composants non stylisée mais responsives et [accessibles](https://www.radix-ui.com/primitives/docs/overview/accessibility).
 
+### Autres
+
 #### [Cypress](https://www.cypress.io/)
 
 J'ai utilisé [Cypress](https://www.cypress.io/) pour réaliser des test End-to-End et unitaires sur mes composants React. Cela m'a permis de surveiller l'évolution de mon code à l'ajout de nouvelles features.
@@ -34,6 +36,21 @@ J'ai utilisé [Cypress](https://www.cypress.io/) pour réaliser des test End-to-
 #### [Docker](https://www.docker.com/)
 
 J'ai utilisé [Docker](https://www.docker.com/) pour apprendre l'outil et permettre de lancer l'application Next.js dans un environnement isolé de l'ordinateur host.
+
+### Pipeline [CI/CD](https://resources.github.com/devops/ci-cd/)
+
+Avec Next.js et Docker, j'ai utilisé les [Github Actions](https://docs.github.com/fr/actions) et mon droplet (VPS) [Digital Ocean](https://www.digitalocean.com/) pour automatiser le déploiement du projet sur mon serveur privé.
+
+Voici les étapes:
+
+- [Création d'un serveur privé](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-ubuntu-server-on-a-digitalocean-droplet) sous Ubuntu 24.04 LTS
+- Configuration d'un reverse proxy avec [Nginx](https://nginx.org/en/)
+- Liaison du serveur avec mon [nom de domaine OVH](https://www.ovhcloud.com/fr/domains/) depuis l'espace OVH dedié
+- Création d'une image Docker avec le [fichier Dockerfile](https://docs.docker.com/reference/dockerfile/)
+- Renseignement des [variables d'environnements](https://docs.github.com/fr/actions/security-guides/using-secrets-in-github-actions) (clés SSH, adresse IP, usernames, passwords...) et secrets dans la section secrets du repository
+- Création d'un fichier [workflow Github](https://docs.github.com/en/actions/using-workflows/about-workflows) pour créer une image du projet, la récupérer et déployer le conteneur dans mon serveur lors du push sur la branch main du repository
+
+#####
 
 ## Installation locale
 
@@ -88,3 +105,10 @@ La seconde [crée et lance un conteneur](https://docs.docker.com/reference/cli/d
 
 `-e` permet de set une variable d'environnement
 `-p` permet de lier le port 3000 du conteneur au port 3000 du host 127.0.0.1 pour nous en local
+
+### Performance
+
+En lancant un dizaine de tests [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=fr), l'outile de Google Chrome pour évaluer la qualité ses sites web, j'obtiens les scores suivants de manière constante (test réalisé sur la site en production):
+
+![Lighthouse score results](./lighthouse-score.png)
+![Lighthouse metrics](./performance-metrics.png)
